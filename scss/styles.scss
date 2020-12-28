@@ -1,0 +1,77 @@
+@import 'config';
+
+//reset
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $light-color;
+  font-family: $font-stack;
+  line-height: 1.6;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+//hero
+.hero {
+  @include set-background($primary-color);
+  min-height: 600px;
+
+  //navbar
+  nav {
+    @include flex();
+    justify-content: space-between;
+
+    ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    li {
+      padding: 15px;
+      &:hover {
+        border-bottom: 2px soild $light-color;
+      }
+    }
+
+    a {
+      color: set-text-color($primary-color);
+    }
+
+    a:hover {
+      color: $secondary-color;
+      
+    }
+  }
+}
+
+  
+
+@import 'utilities';
+@import 'buttons';
+
+
+// _mobile.scss
+@media(max-width: $breakpoint-md) {
+  .hero {
+    min-height: 400px;
+    padding-bottom: 20px;
+    &-content {
+      text-align: center;
+
+      img {
+        display: none;
+      }
+    }
+  }
+}

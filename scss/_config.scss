@@ -1,0 +1,39 @@
+// _config.scss
+
+$font-stack: Arial, Helvetica, sans-serif;
+$light-color: #f4f4f4;
+$dark-color: #141414;
+$primary-color: #0e6cff;
+$secondary-color: #ff8700;
+
+$light-text: #fff ;
+$dark-text: #000;
+
+$large-container: 70rem;
+
+$global-transistion: transform 50ms linear;
+
+$breakpoint-sm: 400px;
+$breakpoint-md: 700px;
+
+// Set text color based on bg
+@function set-text-color($color) {
+  @if(lightness($color) > 70) {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}
+
+// Set background & text color
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color)
+}
+
+@mixin flex() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
