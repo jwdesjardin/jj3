@@ -1,2 +1,2 @@
-# scss-starter
- starter scss files with some utility classes to use in each project 
+# Porfolio Project
+This is the 3rd iteration of my portfolio project
