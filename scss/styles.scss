@@ -1,4 +1,4 @@
-@import 'config';
+@import "config";
 
 //reset
 * {
@@ -13,6 +13,17 @@ body {
   line-height: 1.6;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  margin: 1rem 0;
+}
+
+p {
+  margin: 1rem 0;
+}
+
 img {
   width: 100%;
 }
@@ -20,58 +31,189 @@ img {
 a {
   text-decoration: none;
 }
-
+i {
+  color: $icon-color;
+}
+i:hover {
+  transform: scale(0.95);
+}
 
 //hero
 .hero {
   @include set-background($primary-color);
-  min-height: 600px;
+  min-height: 560px;
 
-  //navbar
-  nav {
-    @include flex();
-    justify-content: space-between;
-
-    ul {
-      display: flex;
-      list-style-type: none;
-    }
-
-    li {
-      padding: 15px;
-      &:hover {
-        border-bottom: 2px soild $light-color;
-      }
-    }
-
-    a {
-      color: set-text-color($primary-color);
-    }
-
-    a:hover {
+  .contentContainer {
+    max-width: $container-lg;
+    margin: 0 auto;
+    height: 100%;
+    @include flex;
+    justify-content: start;
+  }
+  .textBox {
+    max-width: $container-md;
+    margin: 0 1rem;
+    span {
       color: $secondary-color;
-      
+    }
+    h1 {
+      font-size: clamp(1.5rem, 2.5vw, 4rem);
+      line-height: 1.1;
+    }
+    button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: 3px solid $dark-color;
     }
   }
 }
 
-  
+//projects
 
-@import 'utilities';
-@import 'buttons';
+.projects {
+  h2 {
+    font-size: 4rem;
+    font-weight: 200;
+  }
+  @include flex;
+  flex-direction: column;
+  .card {
+    max-width: $container-lg;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 2rem 1rem;
+    box-shadow: 2px 2px 4px 0px $dark-color;
 
-
-// _mobile.scss
-@media(max-width: $breakpoint-md) {
-  .hero {
-    min-height: 400px;
-    padding-bottom: 20px;
-    &-content {
-      text-align: center;
-
+    .leftDiv {
+      @include flex;
       img {
-        display: none;
+        width: 90%;
+        margin: 1rem 0;
+        border-radius: 10px;
+        transition: $global-transistion;
+        &:hover {
+          transform: scale(0.98);
+        }
+      }
+    }
+    .rightDiv {
+      h3 {
+        font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+        a {
+          font-size: clamp(0.6rem, 2.5vw, 1rem);
+        }
+      }
+      ul {
+        list-style: none;
+        letter-spacing: 0.2rem;
+        font-weight: 600;
+        color: darken($primary-color, 10%);
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          margin: 0 1rem;
+        }
       }
     }
   }
 }
+
+//aboutme
+
+.aboutMe {
+  @include set-background($dark-color);
+  .container {
+    max-width: $container-lg;
+    margin: 0 auto;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .leftDiv {
+      padding: 0 3rem;
+    }
+    .rightDiv {
+      @include flex;
+      img {
+        max-width: 20rem;
+      }
+    }
+  }
+}
+
+.treehouse {
+  .container {
+    max-width: $container-lg;
+    margin: 0 auto;
+    .certificate {
+      @include flex;
+      flex-direction: column;
+      img {
+        width: 35%;
+      }
+      p {
+        padding: 1rem;
+        text-align: center;
+      }
+    }
+    .treehouse-projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      .card {
+        box-shadow: 1px 1px 2px 0px $dark-color;
+        margin: 0.5rem;
+        ul {
+          list-style: none;
+          letter-spacing: 0.2rem;
+          font-weight: bold;
+          display: flex;
+          li {
+            margin: 0 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.contactMe {
+  @include set-background($dark-color);
+  .container {
+    max-width: $container-md;
+    margin: 0 auto;
+    @include flex;
+    flex-direction: column;
+    h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    }
+    button {
+      margin: 0 0 1rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: 3px solid $secondary-color;
+    }
+    .contactLinks {
+      a {
+        margin: 0 1rem;
+      }
+    }
+  }
+}
+
+footer {
+  @include set-background($primary-color);
+  color: darken($light-text, 35%);
+  @include flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  p {
+    margin: 0;
+  }
+}
+
+@import "utilities";
+@import "buttons";
+@import "card";
+@import "menu";
+@import "mobile";

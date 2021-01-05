@@ -1,27 +1,30 @@
 // _config.scss
 
-$font-stack: Arial, Helvetica, sans-serif;
-$light-color: #f4f4f4;
-$dark-color: #141414;
-$primary-color: #0e6cff;
-$secondary-color: #ff8700;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&display=swap');
 
-$light-text: #fff ;
-$dark-text: #000;
+$font-stack: 'Montserrat', sans-serif;
+$primary-color: #2967c5;
+$secondary-color: #97e3fa;
+$icon-color:  rgb(104, 248, 104);
+$menu-overlay-color:   #2967c5;
+$light-color: #f0eefc;
+$dark-color: #292929;
+$light-text: #ebebeb;
+$dark-text: #141414;
 
-$large-container: 70rem;
-
+$container-lg: 70rem;
+$container-md: 40rem;
 $global-transistion: transform 50ms linear;
-
-$breakpoint-sm: 400px;
-$breakpoint-md: 700px;
+$menu-transistion-speed: transform 50ms linear ;
+$breakpoint-sm: 450px;
+$breakpoint-md: 900px;
 
 // Set text color based on bg
 @function set-text-color($color) {
   @if(lightness($color) > 70) {
-    @return #333;
+    @return $dark-text;
   } @else {
-    @return #fff;
+    @return $light-text;
   }
 }
 
@@ -35,5 +38,15 @@ $breakpoint-md: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@mixin container($width) {
+  max-width: $width;
+  margin: 0 auto;
+}
+
+
+section {
+  padding: 4em 0;
 }
 
