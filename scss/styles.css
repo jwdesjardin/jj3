@@ -122,30 +122,87 @@ i:hover {
 }
 
 .projects .card .leftDiv {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  padding: 2rem;
 }
 
-.projects .card .leftDiv img {
-  width: 90%;
-  margin: 1rem 0;
-  border-radius: 10px;
-  -webkit-transition: -webkit-transform 50ms linear;
-  transition: -webkit-transform 50ms linear;
-  transition: transform 50ms linear;
-  transition: transform 50ms linear, -webkit-transform 50ms linear;
+.projects .card .leftDiv .overlayContainer {
+  position: relative;
+  background-color: #97e3fa;
+  overflow: hidden;
 }
 
-.projects .card .leftDiv img:hover {
-  -webkit-transform: scale(0.98);
-          transform: scale(0.98);
+.projects .card .leftDiv .overlayContainer::after {
+  content: '';
+  position: absolute;
+  display: block;
+  background: inherit;
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(2) translateX(-75%) translateY(-75%) rotate(-45deg);
+          transform: scale(2) translateX(-75%) translateY(-75%) rotate(-45deg);
+  -webkit-transition: -webkit-transform 750ms linear;
+  transition: -webkit-transform 750ms linear;
+  transition: transform 750ms linear;
+  transition: transform 750ms linear, -webkit-transform 750ms linear;
+}
+
+.projects .card .leftDiv .overlayContainer:hover:after {
+  -webkit-transform: scale(2) translateX(0) translateY(0) rotate(-28deg);
+          transform: scale(2) translateX(0) translateY(0) rotate(-28deg);
+}
+
+.projects .card .leftDiv .overlayContainer:hover .overlayText {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.projects .card .leftDiv .overlayContainer .imageBox {
+  height: auto;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  display: block;
+  -webkit-transition: -webkit-transform 750ms linear;
+  transition: -webkit-transform 750ms linear;
+  transition: transform 750ms linear;
+  transition: transform 750ms linear, -webkit-transform 750ms linear;
+}
+
+.projects .card .leftDiv .overlayContainer .overlayText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  text-align: center;
+  z-index: 1;
+  color: #1a1a1a;
+  -webkit-transform: translateY(-20%);
+          transform: translateY(-20%);
+  -webkit-transition: opacity 500ms linear, -webkit-transform 500ms linear;
+  transition: opacity 500ms linear, -webkit-transform 500ms linear;
+  transition: opacity 500ms linear, transform 500ms linear;
+  transition: opacity 500ms linear, transform 500ms linear, -webkit-transform 500ms linear;
+  -webkit-transition-delay: 300ms;
+          transition-delay: 300ms;
+}
+
+.projects .card .leftDiv .overlayContainer .overlayTextBox {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  padding: 2rem;
+}
+
+.projects .card .leftDiv .overlayContainer .overlayTextBox p {
+  font-weight: 600;
+  font-size: 3rem;
 }
 
 .projects .card .rightDiv h3 {
@@ -714,6 +771,9 @@ footer p {
 }
 
 @media (max-width: 450px) {
+  .menu-wrap {
+    position: absolute;
+  }
   .menu-wrap .menu > div > div > img {
     max-width: 10rem;
     max-height: 10rem;

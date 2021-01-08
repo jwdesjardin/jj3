@@ -50,7 +50,10 @@
 }
 
 @media (max-width: $breakpoint-sm) {
+
+
   .menu-wrap{
+    position: absolute;
     .menu{
       >div{
         >div{
