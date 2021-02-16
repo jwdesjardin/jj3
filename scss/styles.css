@@ -89,6 +89,47 @@ i:hover {
   border: 3px solid #292929;
 }
 
+.grid-2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  max-width: 70rem;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flex ul {
+  margin-top: 1rem;
+  list-style: none;
+  letter-spacing: 0.2rem;
+  font-weight: 600;
+  color: #20519b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.flex ul li {
+  margin: 0 1rem;
+}
+
 .projects {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -106,32 +147,35 @@ i:hover {
 }
 
 .projects h2 {
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: 200;
 }
 
 .projects .card {
-  max-width: 70rem;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  margin: 2rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 1rem;
+  padding: 2rem;
   -webkit-box-shadow: 2px 2px 4px 0px #292929;
           box-shadow: 2px 2px 4px 0px #292929;
 }
 
-.projects .card .leftDiv {
-  padding: 2rem;
+.projects .card .flex .leftDiv {
+  padding: 1rem;
 }
 
-.projects .card .leftDiv .overlayContainer {
+.projects .card .flex .leftDiv .overlayContainer {
   position: relative;
   background-color: #97e3fa;
   overflow: hidden;
 }
 
-.projects .card .leftDiv .overlayContainer::after {
+.projects .card .flex .leftDiv .overlayContainer::after {
   content: '';
   position: absolute;
   display: block;
@@ -149,18 +193,18 @@ i:hover {
   transition: transform 750ms linear, -webkit-transform 750ms linear;
 }
 
-.projects .card .leftDiv .overlayContainer:hover:after {
+.projects .card .flex .leftDiv .overlayContainer:hover:after {
   -webkit-transform: scale(2) translateX(0) translateY(0) rotate(-28deg);
           transform: scale(2) translateX(0) translateY(0) rotate(-28deg);
 }
 
-.projects .card .leftDiv .overlayContainer:hover .overlayText {
+.projects .card .flex .leftDiv .overlayContainer:hover .overlayText {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }
 
-.projects .card .leftDiv .overlayContainer .imageBox {
+.projects .card .flex .leftDiv .overlayContainer .imageBox {
   height: auto;
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
@@ -171,7 +215,12 @@ i:hover {
   transition: transform 750ms linear, -webkit-transform 750ms linear;
 }
 
-.projects .card .leftDiv .overlayContainer .overlayText {
+.projects .card .flex .leftDiv .overlayContainer .imageBox img {
+  height: 4.5rem;
+  width: 8rem;
+}
+
+.projects .card .flex .leftDiv .overlayContainer .overlayText {
   position: absolute;
   top: 0;
   left: 0;
@@ -191,7 +240,7 @@ i:hover {
           transition-delay: 300ms;
 }
 
-.projects .card .leftDiv .overlayContainer .overlayTextBox {
+.projects .card .flex .leftDiv .overlayContainer .overlayTextBox {
   position: absolute;
   width: 100%;
   top: 50%;
@@ -200,33 +249,17 @@ i:hover {
   padding: 2rem;
 }
 
-.projects .card .leftDiv .overlayContainer .overlayTextBox p {
+.projects .card .flex .leftDiv .overlayContainer .overlayTextBox p {
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 1rem;
 }
 
 .projects .card .rightDiv h3 {
-  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
 }
 
 .projects .card .rightDiv h3 a {
   font-size: clamp(0.6rem, 2.5vw, 1rem);
-}
-
-.projects .card .rightDiv ul {
-  list-style: none;
-  letter-spacing: 0.2rem;
-  font-weight: 600;
-  color: #20519b;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.projects .card .rightDiv ul li {
-  margin: 0 1rem;
 }
 
 .aboutMe {
@@ -308,12 +341,16 @@ i:hover {
 }
 
 .treehouse .container .treehouse-projects .card ul {
+  margin-top: 1rem;
   list-style: none;
   letter-spacing: 0.2rem;
-  font-weight: bold;
+  font-weight: 600;
+  color: #20519b;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .treehouse .container .treehouse-projects .card ul li {

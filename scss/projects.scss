@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&display=swap');
+
+$font-stack: 'Montserrat', sans-serif;
+$primary-color: #2967c5;
+$secondary-color: #97e3fa;
+$icon-color:  rgb(104, 248, 104);
+$menu-overlay-color:   #2967c5;
+$light-color: #f0eefc;
+$dark-color: #292929;
+$light-text: #ebebeb;
+$dark-text: #141414;
+
+$container-lg: 70rem;
+$container-md: 40rem;
+$global-transistion: transform 50ms linear;
+$menu-transistion-speed: transform 50ms linear ;
+$breakpoint-sm: 450px;
+$breakpoint-md: 900px;
+
+// Set text color based on bg
+@function set-text-color($color) {
+  @if(lightness($color) > 70) {
+    @return $dark-text;
+  } @else {
+    @return $light-text;
+  }
+}
+
+// Set background & text color
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color)
+}
+
+.btn{
+  display: inline-block;
+  border-radius: 5px;
+  padding: 8px 20px;
+  margin: 3px;
+  transition: $global-transistion;
+  &:hover {
+    transform: scale(.98);
+  }
+}
+
+.btn-primary {
+  @extend .btn;
+  @include set-background(lighten($primary-color, 15%));
+  border: 1px solid $primary-color;
+}
+.btn-secondary{
+  @extend .btn;
+  @include set-background(lighten($secondary-color, 15%));
+  border: 1px solid $secondary-color;
+}
+body{
+  font-family: Montserrat;
+  color: $dark-text;
+}
+
+img{
+  border-radius: 7px;
+}
+
+.headerContainer{
+  font-size: 1.4rem;
+  
+  .headerContentContainer{
+    margin: 0 auto;
+    max-width: $container-lg;
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .leftFlexItem{
+      margin-right: 2rem;
+    }
+    .projectLinks{
+      display: flex;
+      flex-direction: column;
+      button{
+        margin: .5rem
+      }
+    }
+  }
+}
+
+.imgGalleryContainer{
+  padding: 2rem;
+  .imgsContainer{
+    margin: 0 auto;
+    max-width: $container-lg;
+    overflow-x: scroll;
+    display: flex;
+    img{
+      margin: 0 .5rem;
+    }
+  }
+}
+
+.projectContainer{
+  
+  padding: 2rem;
+  .projectDescriptionContainer{
+    margin: 0 auto;
+    max-width: $container-lg;
+    
+    .projectSectionContainer{
+      padding: 1rem;
+      .titleDiv{
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        .tech_icons{
+          opacity: .8;
+        }
+        h2{
+          font-size: 1.8rem;
+          margin-right: 2rem;
+        }
+      }
+      .textContentDiv{
+        padding: 1.5rem;
+        line-height: 1.8;
+        p{
+          text-indent: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  
+  .titleDiv{
+    flex-direction: column;
+  }
+
+  .headerContentContainer{
+display: flex;
+flex-direction: column;
+  }
+
+  .projectContainer{
+    padding: .5rem;
+  }
+  
+
+
+
+}

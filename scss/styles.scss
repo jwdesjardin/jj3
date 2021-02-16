@@ -70,23 +70,50 @@ i:hover {
 }
 
 //projects
+.grid-2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: $container-lg;
+}
+
+.flex{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  ul {
+    margin-top: 1rem;
+    list-style: none;
+    letter-spacing: 0.2rem;
+    font-weight: 600;
+    color: darken($primary-color, 10%);
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      margin: 0 1rem;
+    }
+  }
+}
+
 
 .projects {
+  
   h2 {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 200;
   }
   @include flex;
   flex-direction: column;
   .card {
-    max-width: $container-lg;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 2rem 1rem;
+    
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 2rem;
     box-shadow: 2px 2px 4px 0px $dark-color;
-
+.flex{
     .leftDiv {
-      padding: 2rem;
+      padding: 1rem;
       .overlayContainer {
         position: relative;
         background-color: $secondary-color;
@@ -122,6 +149,10 @@ i:hover {
           transform: translateZ(0);
           display: block;
           transition: transform 750ms linear;
+          img{
+            height: 4.5rem;
+            width: 8rem;
+          }
         }
 
 
@@ -150,10 +181,11 @@ i:hover {
           padding: 2rem;
           p{
             font-weight: 600;
-            font-size: 3rem;
+            font-size: 1rem;
             
           }
         }
+        
        
       }
       
@@ -169,24 +201,15 @@ i:hover {
       //   }
       // }
     }
+  }
     .rightDiv {
       h3 {
-        font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+        font-size: clamp(1rem, 2.5vw, 1.6rem);
         a {
           font-size: clamp(0.6rem, 2.5vw, 1rem);
         }
       }
-      ul {
-        list-style: none;
-        letter-spacing: 0.2rem;
-        font-weight: 600;
-        color: darken($primary-color, 10%);
-        display: flex;
-        flex-wrap: wrap;
-        li {
-          margin: 0 1rem;
-        }
-      }
+      
     }
   }
 }
@@ -235,14 +258,18 @@ i:hover {
         box-shadow: 1px 1px 2px 0px $dark-color;
         margin: 0.5rem;
         ul {
+          margin-top: 1rem;
           list-style: none;
           letter-spacing: 0.2rem;
-          font-weight: bold;
+          font-weight: 600;
+          color: darken($primary-color, 10%);
           display: flex;
+          flex-wrap: wrap;
           li {
             margin: 0 1rem;
           }
         }
+        
       }
     }
   }
